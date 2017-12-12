@@ -1,0 +1,53 @@
+﻿@model SAT1.SATScheduledClass
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Scheduled Class</h2>
+
+<h3>Are you sure you want to delete this Scheduled Class?</h3>
+<fieldset>
+    <legend>Scheduled Class Delete</legend>
+
+    <div class="display-label">Course</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATCours.courseName)
+    </div>
+
+    <div class="display-label">Start Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.startDate)
+    </div>
+
+    <div class="display-label">End Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.endDate)
+    </div>
+
+    <div class="display-label">Credit Hours</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.creditHours)
+    </div>
+
+    <div class="display-label">Instructor</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.instructorName)
+    </div>
+
+    <div class="display-label">Location</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.location)
+    </div>
+
+    <div class="display-label">Class Status</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATScheduledClassStatus.SCSName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to Scheduled Classes", "Index")
+    </p>
+}

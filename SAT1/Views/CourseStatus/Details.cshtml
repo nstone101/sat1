@@ -1,0 +1,20 @@
+﻿@model SAT1.SATCourseStatus
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Course Status</legend>
+
+    <div class="display-label">Status Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CSName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.CSID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

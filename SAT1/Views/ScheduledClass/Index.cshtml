@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SAT1.SATScheduledClass>
+
+@{
+    ViewBag.Title = "Scheduled Classes";
+}
+
+<h2>Scheduled Classes</h2>
+
+@if(User.IsInRole("admin")){
+<p>
+    @Html.ActionLink("Add A Scheduled Class", "Create")
+</p>
+}
+
+
+<div class="nicksCustomTableStyle">
+<table style="width:90%; margin:auto;">
+    <tr>
+        <th>
+            Course Name
+        </th>
+        <th>
+            Start Date
+        </th>        
+        <th>
+            Instructor Name
+        </th>
+        <th>
+            Location
+        </th>        
+        <th>
+            Class Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SATCours.courseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>               
+        <td>
+            @Html.DisplayFor(modelItem => item.instructorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.SATScheduledClassStatus.SCSName)
+        </td>
+
+        @if(User.IsInRole("admin")){
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.scheduledClassId }) |          
+            @Html.ActionLink("Delete", "Delete", new { id=item.scheduledClassId }) |
+        </td>             
+        }
+        <td>
+         @Html.ActionLink("Details", "Details", new { id=item.scheduledClassId }) 
+    </td>
+
+    </tr>
+}
+
+</table>
+</div>

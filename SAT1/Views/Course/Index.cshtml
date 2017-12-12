@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SAT1.SATCours>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<h2>Course List</h2>
+
+@if(User.IsInRole("admin")){
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+@using (Html.BeginForm())
+{ 
+    <div>
+    @Html.CheckBox("showInactive", false, new{onchange="document.forms[0].submit()"}) Show Inactive
+   </div>
+}
+@using (Html.BeginForm()){
+   <div>
+      Filter By Dept: @Html.DropDownList("department", "[--Select Dept--]")
+       <input type="submit" value="Go" />
+   </div>
+}
+
+<div class="nicksCustomTableStyle" >
+<table style="width:90%; margin: auto;"> 
+    <tr>
+        <th>
+            Course Name:
+        </th>
+        
+        <th>
+            Department:
+        </th>       
+        <th>
+            Status:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.courseName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.department)
+        </td>        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.SATCourseStatus.CSName)
+        </td>
+        <td>
+           
+            @if(User.IsInRole("admin")){
+            
+            @Html.ActionLink("Edit", "Edit", new { id=item.courseId })@: |            
+            @Html.ActionLink("Delete", "Delete", new { id=item.courseId }) @: |
+           }
+            @Html.ActionLink("Details", "Details", new { id=item.courseId }) 
+            
+           </td>
+    </tr>
+}
+
+</table>
+    </div>

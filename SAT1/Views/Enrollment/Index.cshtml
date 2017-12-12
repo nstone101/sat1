@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SAT1.SATEnrollment>
+
+@{
+    ViewBag.Title = "Enrollment";
+}
+
+<h2>Enrollment</h2>
+
+<p>
+    @Html.ActionLink("Enroll a Student In an Instructors Class", "Create")
+</p>
+<div class="nicksCustomTableStyle">
+<table>
+    <tr>
+        <th>
+            Scheduled Class
+        </th>
+        <th>
+            Student
+        </th>
+        <th>
+            Date Enrolled
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @Html.DisplayFor(modelItem => item.SATScheduledClass.Display) -
+           
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SATStudent.Display)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.enrollmentDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.enrollmentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.enrollmentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.enrollmentId })
+        </td>
+    </tr>
+}
+
+</table>
+</div>

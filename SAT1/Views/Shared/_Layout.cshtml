@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Student Administration Tool - Nick Stone</title>
+<meta name="keywords" content="SAT, Student administration tool, centriq, project 2, nick stone developer" />
+<meta name="description" content="Student Administration Class Scheduling Tool for course lists" />
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+<link href="@Url.Content("~/Content/default.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/fonts.css")" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#startDate, #endDate" ).datepicker();
+  });
+  </script>
+
+
+</head>
+<body>
+<div id="wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="@Url.Action("Index", "Home")">Zoolander Institute</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li class="current_page_item"><a href="@Url.Action("Index", "Home")" accesskey="1" title="">Homepage</a></li>
+				<li><a href="@Url.Action("Index", "Course")" accesskey="2" title="">Courses</a></li>
+				<li><a href="@Url.Action("Index", "ScheduledClass")" accesskey="3" title="">Classes</a></li>
+				<li><a href="@Url.Action("About", "Home")" accesskey="4" title="">About Us</a></li>
+				<li><a href="@Url.Action("Contact", "Home")" accesskey="5" title="">Contact Us</a></li>
+                <li>
+                @if(User.IsInRole("admin"))
+                {
+                    @Html.ActionLink("Students", "Index", "Student")                    
+                }</li>
+                <li>@Html.Partial("_LogOnPartial")</li>
+                
+            </ul>
+		            
+		</div>
+	</div>
+	<div id="banner">&nbsp;</div>
+    @RenderBody()
+	
+</div>
+<div id="copyright" class="container">
+	<p>&copy; <a href="http://www.develop3d-kc.com"></a>. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div>
+</body>
+</html>
+
+

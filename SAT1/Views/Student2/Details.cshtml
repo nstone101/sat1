@@ -1,0 +1,80 @@
+﻿@model SAT1.SATStudent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SATStudent</legend>
+
+    <div class="display-label">Display</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Display)
+    </div>
+
+    <div class="display-label">firstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.firstName)
+    </div>
+
+    <div class="display-label">lastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lastName)
+    </div>
+
+    <div class="display-label">major</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.major)
+    </div>
+
+    <div class="display-label">classification</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.classification)
+    </div>
+
+    <div class="display-label">address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.address)
+    </div>
+
+    <div class="display-label">city</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.city)
+    </div>
+
+    <div class="display-label">state</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.state)
+    </div>
+
+    <div class="display-label">zip</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.zip)
+    </div>
+
+    <div class="display-label">phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.phone)
+    </div>
+
+    <div class="display-label">email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email)
+    </div>
+
+    <div class="display-label">SATStudentStatus</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATStudentStatus.SSName)
+    </div>
+
+    <div class="display-label">pictureUrl</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pictureUrl)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.studentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,20 @@
+﻿@model SAT1.SATScheduledClassStatus
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Scheduled Class Status</legend>
+
+    <div class="display-label">Status</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SCSName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SCSID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

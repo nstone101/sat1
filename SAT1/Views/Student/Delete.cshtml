@@ -1,0 +1,55 @@
+﻿@model SAT1.SATStudent
+
+@{
+    ViewBag.Title = "Delete";
+}
+@if(Model.statusId == 1)
+{
+    <h2>Remove Student</h2>
+}
+else
+{
+    <h2>ReEnroll Student</h2>
+}
+
+
+<h3>Are you sure you want to delete this?</h3>
+<br /><br />
+@if(Model.statusId != 4 && Model.statusId != 5)
+{
+    using (Html.BeginForm())
+    {
+        <p style="float:left;width:39%;">
+            <input type="submit" value="Expel" />
+            @{Session["status"] = 4;}
+        </p>
+    }
+
+    using (Html.BeginForm())
+    {
+        <p style="margin-left:45%;">
+            <input type="submit" value="Dropped Out" /> 
+            @{Session["status"] = 5;}
+        </p>
+    }
+    
+      <p style="margin-left:16em;"> 
+          @Html.ActionLink("Cancel", "Index", 
+          "Student", null, new {@class="backButton" })
+      </p>     
+}
+else
+{
+    using (Html.BeginForm())
+    {
+        <p style="float:left;width:39%;">
+            <input type="submit" value="Bring back as prospect." />
+        </p>
+        <p style="margin-left:45%;"> 
+            @Html.ActionLink("Cancel", "Index", 
+            "Student", null, new {@class="backButton" })
+        </p>     
+    
+    }
+
+}

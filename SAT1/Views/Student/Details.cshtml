@@ -1,0 +1,66 @@
+﻿@model SAT1.SATStudent
+
+@{
+    ViewBag.Title = "Student Details";
+}
+@* dont forget to add clears *@
+
+<h2>@Model.firstName @Model.lastName's Details</h2>
+
+    <div class="formWrapper" style="padding-bottom: 7em;">
+        <div class="formHeader" style="border-bottom:solid 3px black;margin-bottom:1.5em;">
+           <h1> @Html.DisplayFor(model => model.firstName) 
+            @Html.DisplayFor(model => model.lastName)</h1>
+
+
+            Status: @Html.DisplayFor(model => model.SATStudentStatus.SSName)<br /><br />
+        
+        </div>
+
+        <div class="formLeft" style="text-align:left;">
+            <img width="150" 
+                src="@Url.Content("~/Content/Images/StudentImages/"
+            + @Model.pictureUrl)"/>
+           
+            
+            
+        </div>
+        <div class="formRight" >
+            <h3>Contact Info:</h3>
+
+            @Html.DisplayFor(model => model.address)
+            <br />
+            @Html.DisplayFor(model => model.city), 
+            @Html.DisplayFor(model => model.state)  
+            @Html.DisplayFor(model => model.zip)
+            <br />
+            
+            Phone Number: @Html.DisplayFor(model => model.phone)
+            <br />
+            Email Address: @Html.DisplayFor(model => model.email)
+            <br />
+            @Html.DisplayFor(model => model.classification)
+            <br />
+            @Html.DisplayFor(model => model.major)
+            <br />
+
+        </div>
+        @* must clear *@
+        <div class="clear"></div>
+        <div class="formFooter">
+            <div class="formFooterLeft">
+                @Html.ActionLink("Edit", "Edit", new { id=Model.studentId }) 
+
+
+
+
+
+            </div>
+            <div class="formFooterRight">
+                @Html.ActionLink("Back to Students", "Index")
+            </div>
+            <div class="formFooterCenter">
+            </div>
+            <div class="clear"></div>
+        </div>
+</div>

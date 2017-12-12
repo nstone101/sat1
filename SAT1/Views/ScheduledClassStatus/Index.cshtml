@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SAT1.SATScheduledClassStatus>
+
+@{
+    ViewBag.Title = "Scheduled Class Status";
+}
+
+<h2>Scheduled Class Status</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Scheduled Class Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCSName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SCSID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SCSID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SCSID })
+        </td>
+    </tr>
+}
+
+</table>

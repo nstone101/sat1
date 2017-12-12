@@ -1,0 +1,30 @@
+﻿@model SAT1.SATEnrollment
+
+@{
+    ViewBag.Title = "Enrollment Details";
+}
+
+<h2>Enrollment Details</h2>
+
+<fieldset>
+    <legend>Enrollment Details</legend>
+
+    <div class="display-label">Scheduled Class</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATScheduledClass.instructorName)
+    </div>
+
+    <div class="display-label">Student</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATStudent.firstName)
+    </div>
+
+    <div class="display-label">Enrollment Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.enrollmentDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.enrollmentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

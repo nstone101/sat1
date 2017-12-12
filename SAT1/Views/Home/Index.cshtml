@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="featured">
+		<div class="container">
+			<div class="title">
+				<h2>Your future starts here.</h2>
+				<span class="byline">Let us provide you with the tools to succeed and accomplish your dreams.</span> </div>
+			<p>This school is a proud partner and affiliate of <strong>Derek Zoolander School For Kids Who Can't Read Good & Want to Learn Do Other Things Good Too</strong> Copyright 2015. Have fun :) </p>
+		</div>
+		<ul class="actions">
+			<li><a href="@Url.Action("About", "Home")" class="button">Click To Learn More About Us</a></li>
+		</ul>
+	</div>
+	@*<div id="extra" class="container">
+		<div class="title">
+			<h2>Praesent scelerisquet</h2>
+			<span class="byline">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue</span> </div>
+		<div id="three-column">
+			<div class="boxA">
+				<div class="box"> <span class="fa fa-cloud-download"></span>
+					<p>Praesent pellentesque facilisis elit. Class aptent taciti sociosqu ad  torquent per conubia nostra.</p>
+				</div>
+			</div>
+			<div class="boxB">
+				<div class="box"> <span class="fa fa-cogs"></span>
+					<p>Etiam neque. Vivamus consequat lorem at nisl. Nullam  wisi a sem semper eleifend. Donec mattis.</p>
+				</div>
+			</div>
+			<div class="boxC">
+				<div class="box"> <span class="fa fa-user"></span>
+					<p> Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi. Pellentesque adipiscing purus.</p>
+				</div>
+			</div>
+		</div>
+		<ul class="actions">
+			<li><a href="#" class="button">Etiam posuere</a></li>
+		</ul>
+	</div>*@
+	<div id="page" class="container">
+	  <div class="title">
+			<h2>Our Reknown Undergraduate and Graduate Programs & Colleges </h2>
+		<div class="gallery">
+			<div class="boxA"><img src="@Url.Content("~/Content/images/pic01.jpg")" width="320" height="200" alt="" /></div>
+			<div class="boxB"><img src="@Url.Content("~/Content/images/pic02.jpg")" width="320" height="200" alt="" /></div>
+			<div class="boxC"><img src="@Url.Content("~/Content/images/pic03.jpg")" width="320" height="200" alt="" /></div>
+		</div>
+	
+        <div class="title">
+			<h2>Functionality for the University Site: </h2>
+           <div id="phaseOneLeft">
+           <span class="byline">Phase 1, Anonymous Users should be able to view:</span> 
+             <ul>
+                <li>Home Page - Home/Index</li>
+                <li>About Page - Home/About</li>
+                <li>Contact Page w/ functioning contact form - Home/Contact</li>
+                <li>Active Course Listing - Courses/Index & Courses Details</li>
+            </ul> 
+           </div>
+          
+           <div id="phaseTwoRight">
+              <span>Phase 2, Anonymous Users should be able to view:</span> 
+               <ul>
+                   <li>Anonymous Users can now view:</li>
+                   <li>Scheduled Classes - ScheduledClasses/Index</li>
+                   <li>Scheduled Classes - ScheduledClasses/Details</li>
+               </ul>
+          </div>
+          <div>
+               <ul>
+                   <li>Administrators should be able to:</li>
+                   <li>View/Create/Edit/Delete Scheduled Classes</li>
+                   <li>View/Create/Edit/Delete Scheduled Classes Statuses</li>
+                   <li>jQuery UI DatePicker should be used for start and end dates</li>
+               </ul>
+           </div>            
+            <div class="phase3">
+            <span class="byline">Phase 3**, Extra - (NOT Required for project completion:</span>
+                <ul>
+                    <li>Administrators should be able to:</li>
+                    <li>View/Create/Edit/Delete Enrollements</li>
+                    <li>Drop Down Lists for Student</li>
+                </ul>
+
+            </div>
+		</div>
+          @if(User.IsInRole("admin")){
+		<ul class="actions">
+			<li><a href="@Url.Action("Index", "Enrollment")" class="button">Enrollment</a></li>
+		</ul>
+          }
+	</div>
+ </div>

@@ -1,0 +1,110 @@
+﻿@model IEnumerable<SAT1.SATStudent>
+
+@{
+    ViewBag.Title = "Students";
+}
+
+<h2>Students</h2>
+
+@if(User.IsInRole("admin")){
+<p>
+    @Html.ActionLink("Add New Student", "Create")
+</p>
+
+}
+
+@using (Html.BeginForm())
+{ 
+    <p>Search: @Html.TextBox("search")
+        <input type="submit" value="Search!" />
+        Show Inactive Students @Html.CheckBox("showInactive",
+        false, new {onchange="document.forms[0].submit()"})
+        <input type="submit" value="Search!" /> 
+    </p>
+
+}
+
+
+
+@if(Model.Count() > 0)
+{
+    <div class="nicksCustomTableStyle">
+    <table style="width:95%; margin:auto;">
+    <tr>
+        <th>
+            Display
+        </th>
+        <th>
+           Name
+        </th>
+        <th>
+            Major
+        </th>
+        <th>
+            classification
+        </th>
+        
+        <th>
+            Phone
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Status
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Display)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.major)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.classification)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SATStudentStatus.SSName)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.studentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.studentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.studentId })
+        </td>
+    </tr>
+}
+
+</table>    
+    </div>
+}    
+else
+{
+    //no data
+    <h4>No records matched your search!</h4>
+}
+
+
+
+
+
+
+
+            
+

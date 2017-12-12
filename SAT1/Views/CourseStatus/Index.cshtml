@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SAT1.SATCourseStatus>
+
+@{
+    ViewBag.Title = "Course Status";
+}
+
+<h2>Course Status</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="nicksCustomTableStyle">
+<table style="width:90%; margin:auto;">
+    <tr>
+        <th>
+            Course Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSName)
+        </td>
+        @if(User.IsInRole("admin")){
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CSID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CSID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CSID })
+        </td>
+        }
+    </tr>
+}
+
+</table>
+</div>

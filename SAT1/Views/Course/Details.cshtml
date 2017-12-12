@@ -1,0 +1,50 @@
+﻿@model SAT1.SATCours
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Course</legend>
+
+    <div class="display-label">Course Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.courseName)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.courseDescription)
+    </div>
+
+    <div class="display-label">Department</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.department)
+    </div>
+
+    <div class="display-label">Curriculum</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.curriculum)
+    </div>
+
+    <div class="display-label">Notes</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.notes)
+    </div>
+
+    <div class="display-label">Course Status</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATCourseStatus.CSName)
+    </div>
+</fieldset>
+
+<div>
+@if(User.IsInRole("admin")){
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.courseId }) |
+</p>     
+}
+<p>@Html.ActionLink("Back to Course List", "Index")</p>
+</div>

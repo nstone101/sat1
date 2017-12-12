@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SAT1.SATStudentStatus>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Student's Status</h2>
+
+<p>
+    @Html.ActionLink("Create New Status", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Student Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SSID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SSID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SSID })
+        </td>
+    </tr>
+}
+
+</table>

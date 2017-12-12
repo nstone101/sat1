@@ -1,0 +1,33 @@
+﻿@model SAT1.SATEnrollment
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Remove?</legend>
+
+    <div class="display-label">Scheduled Class</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATScheduledClass.instructorName)
+    </div>
+
+    <div class="display-label">Student</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATStudent.firstName)
+    </div>
+
+    <div class="display-label">Enrollment Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.enrollmentDate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

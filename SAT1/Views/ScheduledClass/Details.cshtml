@@ -1,0 +1,56 @@
+﻿@model SAT1.SATScheduledClass
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Class Details</h2>
+
+<fieldset>
+    <legend>Scheduled Class Details</legend>
+
+
+    <div class="display-label">Course</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATCours.courseName)
+    </div>
+
+    <div class="display-label">Start Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.startDate)
+    </div>
+
+    <div class="display-label">End Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.endDate)
+    </div>
+
+    <div class="display-label">Credit Hours</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.creditHours)
+    </div>
+
+    <div class="display-label">Instructor</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.instructorName)
+    </div>
+
+    <div class="display-label">Location</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.location)
+    </div>
+
+    <div class="display-label">Class Status</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SATScheduledClassStatus.SCSName)
+    </div>
+</fieldset>
+@if(User.IsInRole("admin")){
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.scheduledClassId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+}
+else{
+    @Html.ActionLink("Back to List", "Index")
+}
